@@ -1,1 +1,1 @@
-# VITNet
+# NeuralPlay
