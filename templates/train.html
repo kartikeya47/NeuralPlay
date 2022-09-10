@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row py-4">
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Instructions</h4>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <h4 class="card-title">Fine Tune Settings</h4>
+                    <form action="/begin" method="POST" class="mt-4 mb-4" enctype = "multipart/form-data">
+                        <div class="mt-4">
+                            <label for="folder">Upload Zip File</label>
+                            <input type="file" name="file" id="file" class="form-control" enctype = "multipart/form-data">
+
+                            <label for="epochs" class="mt-4">Number of Epochs</label>
+                            <input type="number" name="epochs" id="epochs" class="form-control">
+
+                            <label for="batch" class="mt-4">Batch Size</label>
+                            <input type="number" name="batch" id="batch" class="form-control">
+                        </div>
+                    <button type="submit" class="btn btn-primary mt-4">Begin Training</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

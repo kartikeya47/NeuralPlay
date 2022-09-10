@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row py-4">
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-body">
+                        <h4 class="card-title">Upload Files below</h4>
+                        <form action="/runinference" method="POST" class="mt-4 mb-4" enctype = "multipart/form-data">
+                            <div class="mt-4">
+                                <label for="img">Upload Image</label>
+                                <input type="file" name="img_upload" id="img_upload" class="form-control" >
+                            </div>
+                            <div class="mt-4">
+                                <label for="weights">Upload Weights File</label>
+                                <input type="file" name="weights_upload" id="weights_upload" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-secondary mt-4">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-8">
+                <div class="card mb-4 box-shadow text-center">
+                    <div class="card-body">
+                        <!-- <h4 class="card-title">Fine Tune Settings</h4> -->
+                        <img src="{{ url_for('static', filename=fname) }}" alt="">
+                        <h4>Class: {{ content }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
