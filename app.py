@@ -115,6 +115,22 @@ def downloadfile():
     response.headers["filename"] = model_name
     return response
 
+@app.route('/netron', methods=["POST"])
+def index():
+    if request.method == "POST":
+        model_file = request.files["weights"]
+        if model_file is None or model_file == '':
+            model_file = "./final_model.pth"
+        logging.info(f"model file path: {model_file}")
+        path = Path(model_file.filename)
+        model_file_suffix = path.suffix
+        if not (path.exists() and path.is_file()):
+            return render_template('error.html')
+
+        if model_file_suffix not in file_type_list:
+            return render_template('error.html')
+        return render_template('netron.html', model_file="dataset/train/models/"+model_file.filename)
+
 
 if __name__ == '__main__':
 
